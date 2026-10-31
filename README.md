@@ -147,7 +147,8 @@ All project documentation is structured in the [docs/](docs/README.md) directory
 | **Inventory & Specs** | Full file manifest, routes, and gap review | [00-repository-inventory.md](docs/production/00-repository-inventory.md), [01-documentation-gap-analysis.md](docs/production/01-documentation-gap-analysis.md) |
 | **Product Overview** | Executive summary, value proposition & ICAI alignment | [02-product-overview.md](docs/production/02-product-overview.md) |
 | **User Manual** | 16-module end-to-end auditor workflow & desktop guide | [03-user-manual.md](docs/production/03-user-manual.md) |
-| **Architecture** | System topology, DB schema, security model, offline AI | [05-technical-architecture.md](docs/production/05-technical-architecture.md) |
+| **Architecture** | System topology, DB schema, security model, offline AI | [05-technical-architecture.md](docs/production/05-technical-architecture.md), [presentation-diagrams.md](docs/presentation-diagrams.md) |
+| **Presentation & DFDs** | DFD Level 0, Level 1, Deployment & Pipeline Diagrams | [presentation-diagrams.md](docs/presentation-diagrams.md) |
 | **Statutory Rules** | Indian Income Tax & GST statutory algorithms and formulas | [08-audit-rules-and-calculations.md](docs/production/08-audit-rules-and-calculations.md) |
 | **Test & Evidence** | Real-browser automated test results, Playwright logs & suites | [17-verification-and-test-evidence.md](docs/production/17-verification-and-test-evidence.md) |
 | **Release Readiness** | Production sign-off checklist and release scorecard | [18-release-readiness-matrix.md](docs/production/18-release-readiness-matrix.md), [00-executive-verdict.md](docs/production-review/00-executive-verdict.md) |
