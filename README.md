@@ -36,45 +36,45 @@ Traditional auditing involves checking voluminous financial data manually, which
 FinAuditPro implements a 3-tier forensic verification architecture:
 
 ```mermaid
-graph TD
-    User([Chartered Accountant / Auditor]) -->|HTTPS / Localhost| UI[FinAuditPro Desktop UI]
+flowchart TD
+    User["Chartered Accountant / Auditor"] -->|HTTPS / Localhost| UI["FinAuditPro Desktop UI"]
     
-    subgraph Frontend [Presentation Layer (HTML5/CSS3/ES6)]
-        UI --> Router[Client Route Dispatcher]
-        Router --> AuthState[Session State Machine & Token Manager]
-        Router --> DOMRender[DOM View Renderers - 21 Screens]
-        AuthState --> APIClient[FinAuditAPI Client & Token Signer]
+    subgraph Frontend["Presentation Layer - HTML5 / CSS3 / ES6"]
+        UI --> Router["Client Route Dispatcher"]
+        Router --> AuthState["Session State Machine & Token Manager"]
+        Router --> DOMRender["DOM View Renderers - 21 Screens"]
+        AuthState --> APIClient["FinAuditAPI Client & Token Signer"]
     end
 
-    APIClient -->|JSON REST Requests| Backend[FastAPI Server :8000]
+    APIClient -->|JSON REST Requests| Backend["FastAPI Server :8000"]
 
-    subgraph BackendApp [Local Backend Services]
-        Backend --> CORS[CORS & Request Gatekeeper]
-        CORS --> AuthRouter[JWT Auth & RBAC Middleware]
-        AuthRouter --> EngScope[Engagement Scoping Layer]
+    subgraph BackendApp["Local Backend Services"]
+        Backend --> CORS["CORS & Request Gatekeeper"]
+        CORS --> AuthRouter["JWT Auth & RBAC Middleware"]
+        AuthRouter --> EngScope["Engagement Scoping Layer"]
         
-        EngScope --> IngestService[File Ingestion & Parser Service]
-        EngScope --> AuditEngines[Tri-Engine Forensic Core]
-        EngScope --> ReconEngine[BRS & GST Reconciliation]
-        EngScope --> ReportService[ReportLab PDF Engine]
+        EngScope --> IngestService["File Ingestion & Parser Service"]
+        EngScope --> AuditEngines["Tri-Engine Forensic Core"]
+        EngScope --> ReconEngine["BRS & GST Reconciliation"]
+        EngScope --> ReportService["ReportLab PDF Engine"]
         
-        subgraph TriEngine [Forensic Analysis Core]
-            AuditEngines --> DetEngine[1. Deterministic Rule Engine - Sec 40A3, 269ST, GSTIN]
-            AuditEngines --> MLEngine[2. Scikit-Learn Isolation Forest & Benford MAD]
-            AuditEngines --> LocalAIEngine[3. Local LM Studio Redacted Context Assistant]
+        subgraph TriEngine["Forensic Analysis Core"]
+            AuditEngines --> DetEngine["1. Deterministic Rule Engine - Sec 40A3, 269ST, GSTIN"]
+            AuditEngines --> MLEngine["2. Scikit-Learn Isolation Forest & Benford MAD"]
+            AuditEngines --> LocalAIEngine["3. Local LM Studio Redacted Context Assistant"]
         end
         
-        subgraph AuditLogging [Cryptographic Provenance]
-            EngScope --> AuditLogger[Sequential SHA-256 Hash Chain Logger]
+        subgraph AuditLogging["Cryptographic Provenance"]
+            EngScope --> AuditLogger["Sequential SHA-256 Hash Chain Logger"]
         end
     end
 
-    IngestService --> DB[(SQLite Embedded Database WAL)]
+    IngestService --> DB[("SQLite Embedded Database WAL")]
     AuditEngines --> DB
     ReconEngine --> DB
     AuditLogger --> DB
     
-    BackendApp -.->|Offline / Localhost:1234| LMStudio[LM Studio / Local LLM Server]
+    BackendApp -.->|Offline / Localhost:1234| LMStudio["LM Studio / Local LLM Server"]
 ```
 
 ### 1. Deterministic Rule Engine
