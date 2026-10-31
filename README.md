@@ -203,7 +203,10 @@ FinAuditPro-An-Interface-for-CA/
 
 ---
 
-## 📄 License & Contributing
+## 📄 License, Security & Community
 
 - **License:** [MIT License](LICENSE)
+- **Security Policy & Architecture:** [SECURITY.md](SECURITY.md)
+- **Code of Conduct:** [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - **Contributing Guidelines:** Please open an issue or pull request adhering to ICAI compliance standards and SA 230 working-paper integrity.
+
